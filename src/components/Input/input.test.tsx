@@ -4,10 +4,12 @@ import { phoneMask } from "../../utils/masks";
 import Input from "./index";
 
 describe("Testing input behaviour", () => {
-  it("Verify value when use phone masks", async () => {
+  beforeEach(() => {
     render(<Input data-testid="input" />);
+  });
 
-    const input = screen.getByTestId("input");
+  it("Verify value when use phone masks", async () => {
+    const input = screen.getByTestId("input") as HTMLInputElement;
     fireEvent.change(input, { target: { value: phoneMask("27999999999") } });
     expect(input.value).toBe("(27) 99999-9999");
   });
