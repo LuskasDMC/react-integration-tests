@@ -9,7 +9,7 @@ interface IForm {
   password: string;
 }
 
-function App() {
+function App(): JSX.Element {
   const [error, setError] = useState(false);
   const [form, setForm] = useState<IForm>({
     password: "",
